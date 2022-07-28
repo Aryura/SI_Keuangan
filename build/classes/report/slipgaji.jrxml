@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="355455c5-0ffd-4e2d-b4c1-0d79cc2054fe">
+	<property name="ireport.zoom" value="1.1000000000000034"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="56"/>
+	<parameter name="nguru" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     gajiguru.`id` AS gajiguru_id,
+     gajiguru.`costumID` AS gajiguru_costumID,
+     gajiguru.`id_guru` AS gajiguru_id_guru,
+     gajiguru.`nama_guru` AS gajiguru_nama_guru,
+     gajiguru.`tanggal` AS gajiguru_tanggal,
+     gajiguru.`jam_pelajaran` AS gajiguru_jam_pelajaran,
+     gajiguru.`gaji_jam` AS gajiguru_gaji_jam,
+     gajiguru.`tunjangan` AS gajiguru_tunjangan,
+     gajiguru.`ket_tunjangan` AS gajiguru_ket_tunjangan,
+     gajiguru.`total` AS gajiguru_total
+FROM
+     `gajiguru` gajiguru
+where nama_guru like '%$P!{nguru}%']]>
+	</queryString>
+	<field name="gajiguru_id" class="java.lang.Integer"/>
+	<field name="gajiguru_costumID" class="java.lang.String"/>
+	<field name="gajiguru_id_guru" class="java.lang.Integer"/>
+	<field name="gajiguru_nama_guru" class="java.lang.String"/>
+	<field name="gajiguru_tanggal" class="java.sql.Date"/>
+	<field name="gajiguru_jam_pelajaran" class="java.lang.Integer"/>
+	<field name="gajiguru_gaji_jam" class="java.lang.Double"/>
+	<field name="gajiguru_tunjangan" class="java.lang.Double"/>
+	<field name="gajiguru_ket_tunjangan" class="java.lang.String"/>
+	<field name="gajiguru_total" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="105" splitType="Stretch">
+			<image>
+				<reportElement x="58" y="2" width="129" height="96" uuid="8d7dad00-171b-4e06-bf12-72fd664e7ade"/>
+				<imageExpression><![CDATA["C:\\Users\\maula\\Documents\\NetBeansProjects\\MTSAnnizomiyah\\src\\report\\mts.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="216" y="2" width="361" height="28" uuid="fddad262-abfa-4c35-a280-672ffd3af4b0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[YAYASAN AN-NIZHOMIYAH CILODONG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="30" width="361" height="28" uuid="bdafbd17-8084-4c40-9b18-087682111891"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MADRASAH TSANAWIYAH AN-NIZHOMIYAH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="58" width="361" height="20" uuid="71fffc82-6cd1-44fa-a9e7-386ab500d4b3"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Telp / Fax : (021) 29519896]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="78" width="361" height="20" uuid="cacc305d-f555-44d4-a471-63e7e36a548c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[e-mail : mtsplus87.anz@gmail.com https://anz.sch.id]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="317" splitType="Stretch">
+			<staticText>
+				<reportElement x="58" y="12" width="100" height="20" uuid="d4bb1e0f-a854-46dc-8145-5174919792a6"/>
+				<text><![CDATA[No Transaksi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="58" y="46" width="100" height="20" uuid="45bb9af2-3021-4c66-8836-07dc39448d3d"/>
+				<text><![CDATA[ID Guru]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="508" y="12" width="100" height="20" uuid="a582eb5c-32cc-4f34-8d03-a4ba4ecef6d6"/>
+				<text><![CDATA[Tangal]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="618" y="12" width="100" height="20" uuid="033aca99-6fa6-48fe-9efa-24ac219a26ae"/>
+				<textFieldExpression><![CDATA[$F{gajiguru_tanggal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="187" y="12" width="100" height="20" uuid="9d94ad92-addc-494f-83d3-3e51689b4c60"/>
+				<textFieldExpression><![CDATA[$F{gajiguru_costumID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="187" y="46" width="100" height="20" uuid="090deea1-0a2e-4c29-86d0-97b0e7e1c69c"/>
+				<textFieldExpression><![CDATA[$F{gajiguru_id_guru}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="25" y="73" width="743" height="1" uuid="40b0fb7e-81bf-496d-9ba8-66211d6786ab"/>
+				<graphicElement>
+					<pen lineWidth="1.25"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="612" y="247" width="100" height="20" uuid="2e2fd45b-6e52-49bc-ac7c-4b08da8913e1"/>
+				<textFieldExpression><![CDATA[$F{gajiguru_total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="62" y="87" width="154" height="20" uuid="86a0c571-5916-4c86-8663-4ac831eddec9"/>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="62" y="126" width="154" height="20" uuid="5a89af4d-d7b7-424a-b992-9425af5342de"/>
+				<text><![CDATA[Gaji Per Jam]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="62" y="162" width="154" height="20" uuid="7ae21595-8675-403e-a1cc-33572c379b5d"/>
+				<text><![CDATA[Total Jam Mengajar per Bulan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="62" y="205" width="154" height="20" uuid="7fd42b65-9ba1-4604-ac4b-053bf44c2fc9"/>
+				<text><![CDATA[Tunjangan]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="612" y="87" width="100" height="20" uuid="1bc0f18c-043c-4c8c-a199-d2b26ab95302"/>
+				<textFieldExpression><![CDATA[$F{gajiguru_nama_guru}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="612" y="126" width="100" height="20" uuid="c1518539-e133-43f9-b8fc-b736cd328c26"/>
+				<textFieldExpression><![CDATA[$F{gajiguru_gaji_jam}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="612" y="162" width="100" height="20" uuid="f86e63bc-f0b8-49b0-a241-9af267589978"/>
+				<textFieldExpression><![CDATA[$F{gajiguru_jam_pelajaran}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="612" y="205" width="100" height="20" uuid="28766c38-c633-4c2b-a526-522323641e08"/>
+				<textFieldExpression><![CDATA[$F{gajiguru_tunjangan}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="533" y="247" width="75" height="20" uuid="64cfff67-63ec-4a71-95d4-9329a47e639e"/>
+				<text><![CDATA[Total Gaji : RP]]></text>
+			</staticText>
+			<line>
+				<reportElement x="25" y="225" width="743" height="1" uuid="638253cf-196b-4101-bfff-f60f63da07e5"/>
+				<graphicElement>
+					<pen lineWidth="1.25"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="20" forecolor="#FF66CC" backcolor="#000000" uuid="16007491-1195-4f0b-9af9-a6159ac6c3bb"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement mode="Transparent" x="11" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="295366b3-5216-4471-a064-272a5a2c206b"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Immediate">
+			<printWhenExpression><![CDATA[$V{PAGE_NUMBER}.intValue()>0]]></printWhenExpression>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="50"/>
+	</pageFooter>
+	<summary>
+		<band height="69" splitType="Stretch">
+			<line>
+				<reportElement x="25" y="0" width="743" height="1" uuid="de1fd968-0d58-46bc-b296-c98173ef2456"/>
+				<graphicElement>
+					<pen lineWidth="1.25"/>
+				</graphicElement>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

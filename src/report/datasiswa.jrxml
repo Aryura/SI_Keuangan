@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="76c84aad-2887-467d-9132-ed5b85c9bec9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="nisn" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     murid.`NISN` AS murid_NISN,
+     murid.`NIS` AS murid_NIS,
+     murid.`Nama_SIswa` AS murid_Nama_SIswa,
+     murid.`Jenis_Kelamin` AS murid_Jenis_Kelamin,
+     murid.`Tempat_Lahir` AS murid_Tempat_Lahir,
+     murid.`Tanggal_Lahir` AS murid_Tanggal_Lahir,
+     murid.`Kelas` AS murid_Kelas,
+     murid.`Alamat` AS murid_Alamat
+FROM
+     `murid` murid
+where NISN like '%$P!{nisn}%']]>
+	</queryString>
+	<field name="murid_NISN" class="java.lang.String"/>
+	<field name="murid_NIS" class="java.lang.String"/>
+	<field name="murid_Nama_SIswa" class="java.lang.String"/>
+	<field name="murid_Jenis_Kelamin" class="java.lang.String"/>
+	<field name="murid_Tempat_Lahir" class="java.lang.String"/>
+	<field name="murid_Tanggal_Lahir" class="java.sql.Date"/>
+	<field name="murid_Kelas" class="java.lang.String"/>
+	<field name="murid_Alamat" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="170" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="216" y="0" width="356" height="32" uuid="113f4858-814a-4ee3-a263-bb3b2077efc2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[YAYASAN AN-NIZHOMIYAH CILODONG]]></text>
+			</staticText>
+			<line>
+				<reportElement x="4" y="115" width="796" height="1" uuid="d4e95496-7faa-4e3b-81d8-d3cab15551d1"/>
+			</line>
+			<staticText>
+				<reportElement x="216" y="85" width="356" height="20" uuid="e5dcac15-b95e-4704-a236-4da4973d4003"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[e-mail : mtsplus87.anz@gmail.com https://anz.sch.id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="65" width="356" height="20" uuid="54f6fdcd-ae67-426f-bff4-c569ec9217ea"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Telp / Fax : (021) 29519896]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="32" width="356" height="33" uuid="5cc62134-05f2-4bff-8739-f45c863dbae0"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MADRASAH TSANAWIYAH AN-NIZHOMIYAH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="132" width="356" height="20" uuid="b112132d-fad5-491f-8934-70e6840ef2bd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="16"/>
+				</textElement>
+				<text><![CDATA[LAPORAN DATA SISWA]]></text>
+			</staticText>
+			<image>
+				<reportElement x="48" y="1" width="133" height="115" uuid="f360a915-4a32-40f4-a99d-2bc5dcaf3847"/>
+				<imageExpression><![CDATA["C:\\Users\\maula\\Documents\\NetBeansProjects\\MTSAnnizomiyah\\src\\report\\mts.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="05557985-26fe-4064-b4f6-90b56f524b91"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="100" height="15" forecolor="#736343" uuid="3a44236c-7910-44f4-ac10-8d82e176d5aa"/>
+				<text><![CDATA[NISN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="100" y="0" width="100" height="15" forecolor="#736343" uuid="d3a85d93-eb52-4730-a633-b1f59a08efc9"/>
+				<text><![CDATA[NIS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="200" y="0" width="100" height="15" forecolor="#736343" uuid="336f974c-36e3-4074-9547-8336be0e8700"/>
+				<text><![CDATA[Nama Siswa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="300" y="0" width="100" height="15" forecolor="#736343" uuid="b80dfed0-e1e4-42c8-8706-df8feabc73e2"/>
+				<text><![CDATA[Jenis Kelamin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="400" y="0" width="100" height="15" forecolor="#736343" uuid="2ff494e9-5f0b-4f47-8d48-58285e0b3b16"/>
+				<text><![CDATA[Tempat Lahir]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="500" y="0" width="100" height="15" forecolor="#736343" uuid="7d889594-cfd5-4011-b48f-0b79ac405770"/>
+				<text><![CDATA[Tanggal Lahir]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="600" y="0" width="100" height="15" forecolor="#736343" uuid="92f5b114-aef3-4062-9637-335e22f44163"/>
+				<text><![CDATA[Kelas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="700" y="0" width="100" height="15" forecolor="#736343" uuid="cd4199c8-0c6c-4451-a929-c313ffeba146"/>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="fe178ee6-00cf-4876-89ff-71aa53240687"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="100" height="15" uuid="f331b3f3-99c0-4eaa-8f3a-50335dde53bd"/>
+					<textFieldExpression><![CDATA[$F{murid_NISN}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="100" y="0" width="100" height="15" uuid="ade05cab-f23a-47b9-934e-18cfd2d48031"/>
+					<textFieldExpression><![CDATA[$F{murid_NIS}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="200" y="0" width="100" height="15" uuid="7d031338-036e-4f36-a1da-9ba0c4213302"/>
+					<textFieldExpression><![CDATA[$F{murid_Nama_SIswa}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="300" y="0" width="100" height="15" uuid="bbdaf311-6b76-43c4-9cb3-31ca05b27409"/>
+					<textFieldExpression><![CDATA[$F{murid_Jenis_Kelamin}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="400" y="0" width="100" height="15" uuid="0ff4501f-672a-49cd-8118-e90e24309240"/>
+					<textFieldExpression><![CDATA[$F{murid_Tempat_Lahir}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy">
+					<reportElement style="Detail" x="500" y="0" width="100" height="15" uuid="b1674afe-d717-4387-a155-880d4935d4b7"/>
+					<textFieldExpression><![CDATA[$F{murid_Tanggal_Lahir}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="600" y="0" width="100" height="15" uuid="de86a733-0415-46e2-a624-462242585f65"/>
+					<textFieldExpression><![CDATA[$F{murid_Kelas}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="700" y="0" width="100" height="15" uuid="f0066867-67a5-46ba-bbe3-0c30f3543a67"/>
+					<textFieldExpression><![CDATA[$F{murid_Alamat}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="c490e822-470f-4939-8f5a-649f318c9a6e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="da0e465c-a35c-437b-ada9-8086e5dbc942"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343" uuid="90f4e35c-5b05-4812-98fa-c199a534ec75"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343" uuid="6b1003cf-2bb0-46ef-b1bd-e0b11221cc1c"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="a512e6a6-bf6c-4115-bcda-6ce910f7ae42"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

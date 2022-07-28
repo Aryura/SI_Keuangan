@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5c123b7f-1046-4db5-8568-d83fc2ce3b53">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="nisn" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     murid.`NISN` AS murid_NISN,
+     murid.`NIS` AS murid_NIS,
+     murid.`Nama_SIswa` AS murid_Nama_SIswa,
+     murid.`Jenis_Kelamin` AS murid_Jenis_Kelamin,
+     murid.`Tempat_Lahir` AS murid_Tempat_Lahir,
+     murid.`Tanggal_Lahir` AS murid_Tanggal_Lahir,
+     murid.`Kelas` AS murid_Kelas,
+     murid.`Alamat` AS murid_Alamat
+FROM
+     `murid` murid
+where NISN like '%$P!{nisn}%']]>
+	</queryString>
+	<field name="murid_NISN" class="java.lang.String"/>
+	<field name="murid_NIS" class="java.lang.String"/>
+	<field name="murid_Nama_SIswa" class="java.lang.String"/>
+	<field name="murid_Jenis_Kelamin" class="java.lang.String"/>
+	<field name="murid_Tempat_Lahir" class="java.lang.String"/>
+	<field name="murid_Tanggal_Lahir" class="java.sql.Date"/>
+	<field name="murid_Kelas" class="java.lang.String"/>
+	<field name="murid_Alamat" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="161" splitType="Stretch">
+			<line>
+				<reportElement x="5" y="138" width="797" height="1" uuid="661cebea-15e1-4649-8d2c-949c0c266da9"/>
+			</line>
+			<staticText>
+				<reportElement x="209" y="7" width="363" height="32" uuid="997c22a2-3eb3-4133-a7b8-7ef9f310ce27"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[YAYASAN AN-NIZHOMIYAH CILODONG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="87" width="363" height="20" uuid="f3a1b1d8-90f7-4f8d-9014-9b92834be826"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[e-mail : mtsplus87.anz@gmail.com https://anz.sch.id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="67" width="363" height="20" uuid="c8d49ed4-1ac3-4b1f-b906-19cbbefff354"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Telp / Fax : (021) 29519896]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="39" width="363" height="28" uuid="4b830206-647a-406c-a9f9-a84dea88ab23"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MADRASAH TSANAWIYAH AN-NIZHOMIYAH]]></text>
+			</staticText>
+			<image>
+				<reportElement x="29" y="0" width="153" height="126" uuid="0eb8f51b-1c7d-4bde-9a7d-3223771df1c0"/>
+				<imageExpression><![CDATA["C:\\Users\\maula\\Documents\\NetBeansProjects\\MTSAnnizomiyah\\src\\report\\mts.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="273" splitType="Stretch">
+			<textField>
+				<reportElement x="468" y="58" width="100" height="20" uuid="10f0d042-48d6-4ac6-a43a-33fca297890e"/>
+				<textFieldExpression><![CDATA[$F{murid_NISN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="468" y="91" width="100" height="20" uuid="0ce8fa4e-2738-4c52-b16a-241a3ea5ee82"/>
+				<textFieldExpression><![CDATA[$F{murid_Nama_SIswa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="468" y="127" width="100" height="20" uuid="f4eb43c4-a6ae-45cb-9ac9-5eeb89682257"/>
+				<textFieldExpression><![CDATA[$F{murid_Jenis_Kelamin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="468" y="162" width="71" height="20" uuid="54cb74a2-1952-4032-a3f4-34ffc9ae49a3"/>
+				<textFieldExpression><![CDATA[$F{murid_Tempat_Lahir}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="539" y="162" width="100" height="20" uuid="7a77018d-d2fe-4113-91e4-d195331101ff"/>
+				<textFieldExpression><![CDATA[$F{murid_Tanggal_Lahir}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="468" y="193" width="100" height="20" uuid="7329d311-a2c5-4eb6-9699-cbc822fdcc30"/>
+				<textFieldExpression><![CDATA[$F{murid_Kelas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="468" y="229" width="100" height="20" uuid="c518f0db-15d1-42a3-9ea0-03cf3c776e6d"/>
+				<textFieldExpression><![CDATA[$F{murid_Alamat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="209" y="0" width="363" height="20" uuid="f50f4755-c98f-4dbf-85ca-0810675c0f7a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Kartu Siswa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="162" width="126" height="20" uuid="b8c04497-d01e-4ac1-a6d3-38652d93f69b"/>
+				<text><![CDATA[Tempat, Tanggal Lahir]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="127" width="126" height="20" uuid="45df1c74-b9f7-4f14-be01-3329d0c9bb78"/>
+				<text><![CDATA[Jenis Kelamin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="91" width="126" height="20" uuid="9619851f-5c59-437a-ac8a-118010d24c1b"/>
+				<text><![CDATA[Nama ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="58" width="126" height="20" uuid="76fdda51-cd90-409d-8b10-5ad5173f3d08"/>
+				<text><![CDATA[NISN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="193" width="126" height="20" uuid="73783336-a5eb-45d7-8db0-fc32c9543f59"/>
+				<text><![CDATA[Kelas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="229" width="126" height="20" uuid="6bdc7857-bfce-443a-ba90-19e27e81b933"/>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+			<line>
+				<reportElement x="195" y="25" width="397" height="1" uuid="d8a344e9-839f-48dc-9c50-6fbe481559ff"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
